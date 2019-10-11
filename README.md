@@ -1,7 +1,7 @@
 <img width="150" height="150" align="right" src="https://raw.githubusercontent.com/kriasoft/isomorphic-style-loader/8fe56ef8fba794e00bfbc9b6d731edf0f572d4e7/logo.png" />
 
 # Isomorphic CSS style loader for [Webpack](http://webpack.github.io)
-
+## Support React 16.4 version.
 [![NPM version](https://img.shields.io/npm/v/isomorphic-style-loader.svg)](https://www.npmjs.com/package/isomorphic-style-loader)
 [![NPM downloads](https://img.shields.io/npm/dw/isomorphic-style-loader.svg)](https://www.npmjs.com/package/isomorphic-style-loader)
 [![Library Size](https://img.shields.io/github/size/kriasoft/isomorphic-style-loader/src/withStyles.js.svg)](https://bundlephobia.com/result?p=isomorphic-style-loader)

@@ -15,11 +15,6 @@ import StyleContext from './StyleContext'
 function withStyles(...styles) {
   return function wrapWithStyles(ComposedComponent) {
     class WithStyles extends React.PureComponent {
-      constructor(props, context) {
-        super(props, context)
-        this.removeCss = context.insertCss(...styles)
-      }
-
       componentWillUnmount() {
         if (this.removeCss) {
           setTimeout(this.removeCss, 0)
@@ -27,7 +22,16 @@ function withStyles(...styles) {
       }
 
       render() {
-        return <ComposedComponent {...this.props} />
+        return (
+          <StyleContext.Consumer>
+            {
+              ({insertCss}) => {
+                this.removeCss = insertCss(...styles);
+                return <ComposedComponent {...this.props} />
+              }
+            }
+          </StyleContext.Consumer>
+        )
       }
     }
 

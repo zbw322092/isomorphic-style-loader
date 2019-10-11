@@ -21,12 +21,8 @@ function withStyles() {
     var WithStyles = function (_React$PureComponent) {
       _inheritsLoose(WithStyles, _React$PureComponent);
 
-      function WithStyles(props, context) {
-        var _this;
-
-        _this = _React$PureComponent.call(this, props, context) || this;
-        _this.removeCss = context.insertCss.apply(context, styles);
-        return _this;
+      function WithStyles() {
+        return _React$PureComponent.apply(this, arguments) || this;
       }
 
       var _proto = WithStyles.prototype;
@@ -38,7 +34,13 @@ function withStyles() {
       };
 
       _proto.render = function render() {
-        return React.createElement(ComposedComponent, this.props);
+        var _this = this;
+
+        return React.createElement(StyleContext.Consumer, null, function (_ref) {
+          var insertCss = _ref.insertCss;
+          _this.removeCss = insertCss.apply(void 0, styles);
+          return React.createElement(ComposedComponent, _this.props);
+        });
       };
 
       return WithStyles;
